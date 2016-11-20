@@ -119,6 +119,7 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\app\apiService.js" />
     <Content Include="Scripts\app\application-main.js" />
     <Content Include="Scripts\app\homeController.js" />
     <Content Include="Scripts\bootstrap.js" />

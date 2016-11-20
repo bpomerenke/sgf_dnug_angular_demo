@@ -3,7 +3,7 @@
 
     var angularDemoApp = angular.module('AngularDemoApp');
 
-    angularDemoApp.controller('homeController', function ($http) {
+    angularDemoApp.controller('homeController', function (apiService) {
         var ctrl = this;
 
         ctrl.lists = [];
@@ -15,7 +15,7 @@
         }
 
         ctrl.init = function() {
-            $http({ method: "GET", url: "api/v1/lists" }).then(function(response) { ctrl.lists = response.data; }, function(response) { console.log("something went wrong") });
+            apiService.getLists().then(function(lists) { ctrl.lists = lists; });
         }
     });
 })();
