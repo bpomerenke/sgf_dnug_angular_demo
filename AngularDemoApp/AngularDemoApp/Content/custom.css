@@ -1,0 +1,8 @@
+﻿.list-view li {
+    padding: 10px;
+}
+.details-view {
+    border: 1px solid silver; 
+    min-height: 200px; 
+    padding: 10px;
+}
