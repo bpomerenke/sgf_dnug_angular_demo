@@ -25,7 +25,7 @@
             <h2>Details</h2>
             <div class="details-view" ng-show="ctrl.selectedList">
                 <ol class="">
-                    <li ng-repeat="item in ctrl.selectedList.items">{{item}}</li>
+                    <li ng-repeat="item in ctrl.selectedList.items track by $index">{{item}}</li>
                 </ol>
                 <add-directive add-action="ctrl.addItem"></add-directive>
             </div>
