@@ -10,5 +10,11 @@
             { id: 1, name: 'something', items: ['item 1', 'item 2'] },
             { id: 2, name: 'something else', items: ['item 3', 'item 4'] }
         ];
+
+        ctrl.selectedList = undefined;
+
+        ctrl.selectList = function(list) {
+            ctrl.selectedList = list;
+        }
     });
 })();
