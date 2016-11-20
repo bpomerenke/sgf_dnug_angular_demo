@@ -1,5 +1,9 @@
 ﻿.list-view li {
     padding: 10px;
+    cursor: pointer;
+}
+.list-view li:hover {
+    background-color: #337ab7;
 }
 .details-view {
     border: 1px solid silver; 
