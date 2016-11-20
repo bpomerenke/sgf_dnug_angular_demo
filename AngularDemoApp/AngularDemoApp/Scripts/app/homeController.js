@@ -21,7 +21,6 @@
         ctrl.addItem = function(item) {
             apiService.addItem(ctrl.selectedList.id, item).then(function () {
                 ctrl.selectedList.items.push(item);
-                $scope.itemText = "";
             });
         }
     });
