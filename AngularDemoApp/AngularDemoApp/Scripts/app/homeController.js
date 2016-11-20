@@ -23,5 +23,11 @@
                 ctrl.selectedList.items.push(item);
             });
         }
+        ctrl.addList = function(listName) {
+            apiService.addList(listName).then(function (newList) {
+                ctrl.lists.push(newList);
+                ctrl.selectedList = newList;
+            });
+        }
     });
 })();

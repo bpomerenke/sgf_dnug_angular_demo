@@ -12,9 +12,13 @@
         var _addItem = function(listId, item) {
             return $http({ method: "POST", url: "api/v1/lists/" + listId + "/item", data: { name: item } }).then(successCallback, failureCallback);
         }
+        var _addList = function(listName) {
+            return $http({ method: "POST", url: "api/v1/lists", data: { name: listName } }).then(successCallback, failureCallback);
+        }
         return {
             getLists: _getLists,
-            addItem: _addItem
+            addItem: _addItem,
+            addList: _addList
         }
     });
 })();

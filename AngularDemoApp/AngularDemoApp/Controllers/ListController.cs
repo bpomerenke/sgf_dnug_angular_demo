@@ -27,6 +27,22 @@ namespace AngularDemoApp.Controllers
             }
             return new HttpResponseMessage(HttpStatusCode.NotFound);
         }
+
+        [HttpPost]
+        [Route("api/v1/lists")]
+        public ListView AddList(ItemView item)
+        {
+            var list = new ListView
+            {
+                Id = InMemoryData.GetNextId(),
+                Name = item.Name,
+                Items = new List<string>()
+            };
+
+            InMemoryData.Lists.Add(list);
+
+            return list;
+        }
     }
 
     public static class InMemoryData
@@ -36,6 +52,11 @@ namespace AngularDemoApp.Controllers
             new ListView {Id = 1, Name = "api list 1", Items = new List<string> {"api item 1", "api item 2"}},
             new ListView {Id = 2, Name = "api list 2", Items = new List<string> {"api item 3", "api item 4"}},
         };
+
+        public static int GetNextId()
+        {
+            return Lists.Max(x => x.Id) + 1;
+        }
     }
 
     public class ListView
