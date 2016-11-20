@@ -17,12 +17,12 @@ namespace AngularDemoApp.Controllers
 
         [HttpPost]
         [Route("api/v1/lists/{listId}/item")]
-        public HttpResponseMessage AddItem(int listId, ItemView item)
+        public HttpResponseMessage AddItem(int listId, NameView input)
         {
             var list = InMemoryData.Lists.FirstOrDefault(x => x.Id == listId);
             if (list != null)
             {
-                list.Items.Add(item.Name);
+                list.Items.Add(input.Name);
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
             return new HttpResponseMessage(HttpStatusCode.NotFound);
@@ -30,12 +30,12 @@ namespace AngularDemoApp.Controllers
 
         [HttpPost]
         [Route("api/v1/lists")]
-        public ListView AddList(ItemView item)
+        public ListView AddList(NameView input)
         {
             var list = new ListView
             {
                 Id = InMemoryData.GetNextId(),
-                Name = item.Name,
+                Name = input.Name,
                 Items = new List<string>()
             };
 
@@ -66,7 +66,7 @@ namespace AngularDemoApp.Controllers
         public List<string> Items { get; set; } 
     }
 
-    public class ItemView
+    public class NameView
     {
         public string Name { get; set; }
     }
