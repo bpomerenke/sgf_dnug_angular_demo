@@ -26,6 +26,12 @@
                 <ol class="">
                     <li ng-repeat="item in ctrl.selectedList.items">{{item}}</li>
                 </ol>
+                <form class="form form-inline">
+                    <div class="form-group">
+                        <input type="text" ng-model="itemText"/>
+                        <button class="btn btn-primary" ng-click="ctrl.addItem(itemText)">Add</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

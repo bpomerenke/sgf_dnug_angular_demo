@@ -3,7 +3,7 @@
 
     var angularDemoApp = angular.module('AngularDemoApp');
 
-    angularDemoApp.controller('homeController', function (apiService) {
+    angularDemoApp.controller('homeController', function ($scope, apiService) {
         var ctrl = this;
 
         ctrl.lists = [];
@@ -16,6 +16,13 @@
 
         ctrl.init = function() {
             apiService.getLists().then(function(lists) { ctrl.lists = lists; });
+        }
+
+        ctrl.addItem = function(item) {
+            apiService.addItem(ctrl.selectedList.id, item).then(function () {
+                ctrl.selectedList.items.push(item);
+                $scope.itemText = "";
+            });
         }
     });
 })();
